@@ -27,7 +27,8 @@ public class Movie extends Item {
     }
 
     @Override
-    public int getBorrowDuration() {
+    public int getBorrowDuration() {                       /// // rerun duration ///
+        this.duration = 3;
         return duration; // 3 days for movies
     }
 
