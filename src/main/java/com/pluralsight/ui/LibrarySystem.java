@@ -348,7 +348,7 @@ public class LibrarySystem {
 
         List<Item> results = new ArrayList<>();
         for (Item item : library.getAllItems()) {
-            if (item.getGenre() != null && item.getGenre().toLowerCase().contains(genreQuery)) {
+            if (item.getGenre() != null && item.getGenre().toLowerCase().equalsIgnoreCase(genreQuery)) {
                 results.add(item);
             }else if(item.getTitle()!= null && item.getTitle().toLowerCase().contains(genreQuery)){
                 results.add(item);
@@ -359,8 +359,6 @@ public class LibrarySystem {
                 results.add(item);
 
             }
-
-
         }
 
         if (results.isEmpty()) {
