@@ -10,6 +10,7 @@ import com.pluralsight.service.Logger;
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class LibrarySystem {
     private Library library;
@@ -271,7 +272,7 @@ public class LibrarySystem {
 
     private void searchBooksByGenre() {
         System.out.print("Enter genre: ");
-        String genre = scanner.nextLine();
+        String genre = scanner.nextLine().toLowerCase().trim();
 
         List<Item> results = library.searchByGenre(genre);
         if (results.isEmpty()) {
@@ -321,21 +322,70 @@ public class LibrarySystem {
         }
     }
 
-    private void searchAllItems() {
-        System.out.print("Enter search term (title, creator, genre, or ID): ");
-        String query = scanner.nextLine();
+//    private void searchAllItems() {
+//        System.out.print("Enter search term (title, creator, genre, or ID): ");
+//        String query = scanner.nextLine().toUpperCase().trim();
+//
+//        List<Item> results = library.searchItems(query);
+//
+//
+//
+//        if (results.isEmpty()) {
+//            System.out.println("No items found matching your search.");
+//        } else {
+//            System.out.println("\n=== Search Results ===");
+//            for (Item item : results) {
+//                System.out.println(item);
+//            }
+//        }
+//    }
 
-        List<Item> results = library.searchItems(query);
+
+
+    private void searchAllItems() {
+        System.out.print("Enter search term (title, creator, genre, or ID: ");
+        String genreQuery = scanner.nextLine().trim().toLowerCase();
+
+        List<Item> results = new ArrayList<>();
+        for (Item item : library.getAllItems()) {
+            if (item.getGenre() != null && item.getGenre().toLowerCase().contains(genreQuery)) {
+                results.add(item);
+            }else if(item.getTitle()!= null && item.getTitle().toLowerCase().contains(genreQuery)){
+                results.add(item);
+            } else if (item.getId()!= null && item.getId().toLowerCase().contains(genreQuery)) {
+                results.add(item);
+
+            } else if (item.getCreator()!= null && item.getCreator().toLowerCase().contains(genreQuery)) {
+                results.add(item);
+
+            }
+
+
+        }
 
         if (results.isEmpty()) {
-            System.out.println("No items found matching your search.");
+            System.out.println("No items found for genre: " + genreQuery);
         } else {
-            System.out.println("\n=== Search Results ===");
+            System.out.println("\n=== Search Results for genre '" + genreQuery + "' ===");
             for (Item item : results) {
                 System.out.println(item);
             }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void borrowItem() {
         logger.debug("Borrow item operation initiated");
