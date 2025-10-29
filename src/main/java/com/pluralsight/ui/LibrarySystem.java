@@ -192,6 +192,7 @@ public class LibrarySystem {
     }
 
     // PLACEHOLDER MAGAZINE MENU (Students will implement)
+
     private void magazineMenu() {
         System.out.println("\n=== Magazine Menu ===");
         System.out.println("TODO: Magazine menu implementation");
