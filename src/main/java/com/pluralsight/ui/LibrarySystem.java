@@ -109,6 +109,7 @@ public class LibrarySystem {
                 break;
             case 2:
                 movieMenu();
+
                 break;
             case 3:
                 magazineMenu();
@@ -171,25 +172,45 @@ public class LibrarySystem {
 
     // PLACEHOLDER MOVIE MENU (Students will implement)
     private void movieMenu() {
+        boolean movies = true;
+        while(movies){
+
         System.out.println("\n=== Movie Menu ===");
         System.out.println("TODO: Movie menu implementation");
         System.out.println("This menu should include:");
-        System.out.println("- View all movies");
-        System.out.println("- View available movies");
-        System.out.println("- Search movies by title");
-        System.out.println("- Search movies by director");
-        System.out.println("- Search movies by genre");
-        System.out.println("- Borrow movie");
-        System.out.println("- Return movie");
-        System.out.println("- Show movie duration");
+        System.out.println("1 - View all movies");
+        System.out.println("2 - View available movies");
+        System.out.println("3 - Search movies by title");
+        System.out.println("4 - Search movies by director");
+        System.out.println("5 - Search movies by genre");
+        System.out.println("6 - Borrow movie");
+        System.out.println("7 - Return movie");
+        System.out.println("8 - Show movie duration");
         System.out.println();
-        System.out.println("Press Enter to continue...");
-        scanner.nextLine();
+        System.out.print("Enter your choice: ");
+        int movieChoice = scanner.nextInt();
+        Library library1 = new Library();
+
+        switch (movieChoice){
+
+            case 1:
+                library1.getAllMovies();
+                break;
+
+
+
+        }
+
+
 
         // TODO: Students should implement movie-specific functionality here
         // Similar structure to bookMenu() but for Movie objects
         // Should handle Movie-specific fields like duration
     }
+    }
+
+
+
 
     // PLACEHOLDER MAGAZINE MENU (Students will implement)
 
@@ -371,6 +392,7 @@ public class LibrarySystem {
             }
         }
     }
+
 
 
 

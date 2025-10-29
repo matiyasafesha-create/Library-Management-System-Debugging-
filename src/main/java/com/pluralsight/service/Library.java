@@ -250,6 +250,34 @@ public class Library {
 
 
 
+    //
+//    public List<Book> getAllBooks() {
+//        List<Book> books = new ArrayList<>();
+//        for (Item item : items.values()) {
+//            if (item instanceof Book) {
+//                books.add((Book) item);
+//            }
+//        }
+//        return books;
+//    }
+
+
+    //
+    public List<Movie> getAllMovies() {
+        List<Movie> movies= new ArrayList<>();
+        for (Item item : items.values()) {
+            if (item instanceof Movie) {
+                movies.add((Movie) item);
+            }
+        }
+        return movies;
+
+
+    }
+
+
+
+
 
 
 
